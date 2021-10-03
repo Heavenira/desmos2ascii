@@ -5,6 +5,7 @@ Convert Desmos LaTeX into ASCIImath via a JavaScript function. To my belief, the
 ### Usage
 Open up `desmos2ascii.js`. Inside contains a single function, `desmos2ascii(x)`. `desmos2ascii(x)` accepts any `x` string formatted as LaTeX and outputs an ASCIImath string. This is useful if you want to paste the input to any website, or utilize a parser.
 
+### Features
 There is only one flag that exists, namely `optimizeForParsing`. When `true`, this will:
 - Implement `*` operators, preventing implicit multiplication.
 - Force brackets after every function. ie `\sin x` → `sin(x)` .
