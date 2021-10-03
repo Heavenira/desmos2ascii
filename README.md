@@ -29,5 +29,5 @@ let latexString = String.raw`O_{bs0}\left(x,y,z\right)=\sum_{i=0}^{s_{teps}}\lef
 let asciiString = desmos2ascii(latexString)
 
 console.log(asciiString)
->>> "O_bs0(x,y,z)=sum_(i=0)^(s_teps) IF【M_esh0(Δ_Ray(x,x_CameraFinal,i),Δ_Ray(y,y_CameraFinal,i),Δ_Ray(z,z_CameraFinal,i))=0:0】"
+>>> "O_bs0(x,y,z)=sum_(i=0)^(s_teps) IF(M_esh0(Δ_Ray(x,x_CameraFinal,i),Δ_Ray(y,y_CameraFinal,i),Δ_Ray(z,z_CameraFinal,i))=0:0)"
 ```
