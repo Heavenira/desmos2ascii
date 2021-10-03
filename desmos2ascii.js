@@ -411,7 +411,12 @@ function desmos2ascii(input) {
 					}
 				}
 			}
-			insert(i + 1, " ")
+			if (input[i + 1] == "*") {
+				overwrite(i + 1, " ");
+			}
+			else {
+				insert(i + 1, " ");
+			}
 			overwrite(startingIndex, "✅");
 		}
 		replace(/✅/g, "\\");
@@ -419,47 +424,50 @@ function desmos2ascii(input) {
 		// inverse trigonometry optimizations
 		replace(/\\(?=(?:sin|cos|tan|csc|sec|cot)(?:h|)\^\(-1\))/g, "\\arc");
 		replace(/(?<=\\arc(?:sin|cos|tan|csc|sec|cot)(?:h|))\^\(-1\)/g, "");
-		
-		// remove redundant brackets
-		while (find(/\(/) != -1) {
-			startingIndex = find(/\(/);
-			i = startingIndex;
-			if (!isOperator(i - 1) && input[i - 1] != "✅") {
-				overwrite(startingIndex, "✅");
-				continue;
-			}
-			bracket = -1;
-			while (i < input.length) {
-				i++;
-				bracketEval();
-				if (bracket == -1) {
-					if (input[i] == "_") {
-						i++;
-						bracket -= 1;
-						continue;
-					}
-					if (isOperator(i)) {
-						overwrite(startingIndex, "✅");
-						break;
-					}
+	}
+
+	// remove redundant brackets
+	while (find(/\(/) != -1) {
+		startingIndex = find(/\(/);
+		i = startingIndex;
+		if (!isOperator(i - 1) && input[i - 1] != "✅") {
+			overwrite(startingIndex, "✅");
+			continue;
+		}
+		bracket = -1;
+		while (i < input.length) {
+			i++;
+			bracketEval();
+			if (bracket == -1) {
+				if (input[i] == "_") {
+					i++;
+					bracket -= 1;
+					continue;
 				}
-				if (bracket == 0) {
-					overwrite(i, "❌")
-					overwrite(startingIndex, "❌")
+				if (isOperator(i)) {
+					overwrite(startingIndex, "✅");
 					break;
 				}
 			}
-		}	
-		replace(/❌/g, "");
-		replace(/✅/g, "(");
+			if (bracket == 0) {
+				overwrite(i, "❌")
+				overwrite(startingIndex, "❌")
+				break;
+			}
+		}
+	}	
+	replace(/❌/g, "");
+	replace(/✅/g, "(");
 
-		// final replacements
-		replace(/【/g, "(");
-		//replace(/\^/g, "**")
+	// final replacements
+	replace(/【/g, "(");
+	if (optimizeForParsing) {
+		replace(/\^/g, "**");
+		replace(/π/g, "pi")
 	}
 
-	replace(/«/g, "IF【");
-	replace(/»/g, "】");
+	replace(/«/g, "IF(");
+	replace(/»/g, ")");
 
 	replace(/\\/g, "");
 	replace(/Ⓧ/g, ".x");
