@@ -411,7 +411,7 @@ function desmos2ascii(input) {
 					}
 				}
 			}
-			overwrite(i + 1, " ")
+			insert(i + 1, " ")
 			overwrite(startingIndex, "✅");
 		}
 		replace(/✅/g, "\\");
@@ -419,7 +419,7 @@ function desmos2ascii(input) {
 		// inverse trigonometry optimizations
 		replace(/\\(?=(?:sin|cos|tan|csc|sec|cot)(?:h|)\^\(-1\))/g, "\\arc");
 		replace(/(?<=\\arc(?:sin|cos|tan|csc|sec|cot)(?:h|))\^\(-1\)/g, "");
-
+		
 		// remove redundant brackets
 		while (find(/\(/) != -1) {
 			startingIndex = find(/\(/);
@@ -455,9 +455,8 @@ function desmos2ascii(input) {
 
 		// final replacements
 		replace(/【/g, "(");
-		replace(/\^/g, "**")
+		//replace(/\^/g, "**")
 	}
-
 
 	replace(/«/g, "IF【");
 	replace(/»/g, "】");
@@ -465,6 +464,7 @@ function desmos2ascii(input) {
 	replace(/\\/g, "");
 	replace(/Ⓧ/g, ".x");
 	replace(/Ⓨ/g, ".y");
+	console.log(input+"\n")
 	return input;
 }
 
