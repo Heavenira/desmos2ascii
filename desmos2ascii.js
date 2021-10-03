@@ -466,8 +466,8 @@ function desmos2ascii(input) {
 		replace(/π/g, "pi")
 	}
 
-	replace(/«/g, "IF(");
-	replace(/»/g, ")");
+	replace(/«/g, "{");
+	replace(/»/g, "}");
 
 	replace(/\\/g, "");
 	replace(/Ⓧ/g, ".x");
