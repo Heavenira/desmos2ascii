@@ -44,3 +44,5 @@ desmos2ascii(String.raw`\int_{1}^{y\left(x\right)}\left(\frac{1}{\sqrt{2\ln\left
 desmos2ascii(String.raw`O_{bs0}\left(x,y,z\right)=\sum_{i=0}^{s_{teps}}\left\{M_{esh0}\left(\Delta_{Ray}\left(x,x_{CameraFinal},i\right),\Delta_{Ray}\left(y,y_{CameraFinal},i\right),\Delta_{Ray}\left(z,z_{CameraFinal},i\right)\right)=0:0\right\}`)
 
 desmos2ascii(String.raw`L_{matrix}=\left\{\sqrt{\operatorname{length}\left(M_{00}\right)}=\operatorname{round}\left(\sqrt{\operatorname{length}\left(M_{00}\right)}\right):\sqrt{\operatorname{length}\left(M_{00}\right)}\right\}`)
+
+// let's hope discord can forward this :)
