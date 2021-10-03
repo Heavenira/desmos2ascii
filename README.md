@@ -16,7 +16,6 @@ There is only one flag that exists, namely `optimizeForParsing`. When `true`, th
 
 
 Finally, desmos2ascii will perform the following alterations regardless:
-- Replace piecewise notation `{}` with `IF()`. This is a compatibility feature for [wolfram2desmos](https://github.com/Heavenira/wolfram2desmos).
 - Remove excess brackets. `2^{(x)}` will become `2^x`.
 - Express `|x|` as `abs(x)`. No exceptions.
 
