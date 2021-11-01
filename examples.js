@@ -46,3 +46,5 @@ desmos2ascii(String.raw`O_{bs0}\left(x,y,z\right)=\sum_{i=0}^{s_{teps}}\left\{M_
 desmos2ascii(String.raw`L_{matrix}=\left\{\sqrt{\operatorname{length}\left(M_{00}\right)}=\operatorname{round}\left(\sqrt{\operatorname{length}\left(M_{00}\right)}\right):\sqrt{\operatorname{length}\left(M_{00}\right)}\right\}`)
 
 // let's hope discord can forward this :)
+
+// happy halloween 🎃
